@@ -250,6 +250,50 @@ function LeaveMessage({setFacilities}) {
     );
 }
 
+function Documentation({facilities}) {
+    return (
+        <div id="welcome-div" className="font-sans text-base font-normal overflow-auto h-5/6 tracking-normal leading-normal" onClick={(e)=>e.stopPropagation()}>
+                {
+                    (facilities[0]=="drawer" ? 
+                        <>
+                        <div className="text-3xl font-bold">Training Materials</div><p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <div>Introduction to Unity</div>
+                        <p>&nbsp;</p>
+                        <div>Getting started with VotanicXR</div>
+                        </>
+                    :
+                        (facilities[0]=="drawer1" ? 
+                            <>
+                            <div className="text-3xl font-bold">Votanic References</div>
+                            <p>&nbsp;</p>
+                            <div>Sample scene download</div>
+                            </>
+                        : 
+                            (facilities[0] == "drawer2" ? 
+                                <>
+                                <div className="text-3xl font-bold">Photogrammetry & RealityCapture</div>
+                                <p>&nbsp;</p>
+                                <div>
+                                    <a classname="underline underline-offset-1" href="https://www.artstation.com/artwork/RyqZLr" target="_blank">Case study - Ancient tree</a>
+                                </div>
+                                </>
+                            : 
+                                <>
+                                <div className="text-3xl font-bold">Technical Documentation</div>
+                                <p>&nbsp;</p>
+                                <div>VR Lab Website Design and Implementation</div>
+                                <div>Application development strategy</div>
+                                <div><a href="yulan_museum.html" target="_blank">Show case - Yulan Museum</a></div>
+                                </>
+                            )
+                        )
+                    )
+                }
+        </div>
+    );
+}
+
 export default function FrontDiv({ content, setContent, facilities, setFacilities }) {
     const location = useLocation();
     const [bookings, setBookings] = useState(bk);
@@ -268,7 +312,13 @@ export default function FrontDiv({ content, setContent, facilities, setFacilitie
                             <LeaveMessage setFacilities={setFacilities}/>
                         </div>
                     :
-                        <div></div>
+                        (facilities.length==1 && facilities[0].includes("drawer") ? 
+                            <div id="booking-div" className="flex flex-col items-center content"  onClick={(e)=>e.stopPropagation()}>
+                                <Documentation facilities={facilities} setFacilities={setFacilities} />
+                            </div>
+                        :
+                            <div></div>
+                        )
                     )
                 )
             :
