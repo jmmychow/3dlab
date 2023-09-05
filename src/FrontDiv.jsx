@@ -284,7 +284,6 @@ function Documentation({facilities}) {
                                 <p>&nbsp;</p>
                                 <div>VR Lab Website Design and Implementation</div>
                                 <div>Application development strategy</div>
-                                <div><a href="yulan_museum.html" target="_blank">Show case - Yulan Museum</a></div>
                                 </>
                             )
                         )
