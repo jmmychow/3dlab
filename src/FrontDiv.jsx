@@ -14,7 +14,7 @@ function HeaderDiv() {
 
     return (
         <div id="header-div" className="frame">
-            <img className="logo" src="logo.svg"></img>
+            <div className="logo flex flex-nowrap text-3xl font-bold text-blue-700 tracking-tighter">The &nbsp;Earth&nbsp; University</div>
             <div className="topui">
                 <div className="ml-3 mt-1 flex flex-nowrap text-xs btn-inactive bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY<div className="text-white">&nbsp;&nbsp;LABORATORY</div>&nbsp;&nbsp;</div>
                 {/*<div className="dropdown dropdown-hover">
