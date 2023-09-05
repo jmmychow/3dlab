@@ -1,0 +1,28 @@
+[
+    {
+        "_id": "12212444",
+        "date": "Fri Sep 01 2023 00:00:00 GMT+0800 (Hong Kong Standard Time)",
+        "email": "hello@hksyu.edu",
+        "facility": "C A V E",
+        "academic": false,
+        "personsLess10": false
+    },
+    {
+        "_id": "12212499",
+        "date": "Thu Aug 24 2023 12:00:00 GMT+0800 (Hong Kong Standard Time)",
+        "email": "left@hksyu.edu",
+        "facility": "Workstation 3",
+        "academic": true,
+        "personsLess10": true
+
+    },
+    {
+        "_id": "12212466",
+        "date": "Fri Aug 25 2023 12:00:00 GMT+0800 (Hong Kong Standard Time)",
+        "email": "rear@hksyu.edu",
+        "facility": "Workstation 4",
+        "academic": true,
+        "personsLess10": true
+
+    }
+]

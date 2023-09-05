@@ -1,0 +1,172 @@
+{
+  "Models": [
+    {
+      "src": "assets/furniture/air_hockey_001.glb",
+      "alt": "Air hockey",
+      "poster": "assets/furniture/air_hockey_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/dresser_001.glb",
+      "alt": "Dresser",
+      "poster": "assets/furniture/dresser_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/coffee_machine_001.glb",
+      "alt": "Coffee machine",
+      "poster": "assets/furniture/coffee_machine_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/kitchen_table_001.glb",
+      "alt": "Kitchen table",
+      "poster": "assets/furniture/kitchen_table_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/training_item_001.glb",
+      "alt": "Training item",
+      "poster": "assets/furniture/training_item_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/washing_machine_001.glb",
+      "alt": "Washing machine",
+      "poster": "assets/furniture/washing_machine_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/sofa_001.glb",
+      "alt": "Sofa",
+      "poster": "assets/furniture/sofa_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/training_item_002.glb",
+      "alt": "Training item",
+      "poster": "assets/furniture/training_item_002.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/camera_001.glb",
+      "alt": "Camera",
+      "poster": "assets/furniture/camera_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/dumbbell_002.glb",
+      "alt": "Dumbbell",
+      "poster": "assets/furniture/dumbbell_002.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/flower_001.glb",
+      "alt": "Flower",
+      "poster": "assets/furniture/flower_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/fridge_001.glb",
+      "alt": "Fridge",
+      "poster": "assets/furniture/fridge_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/ketchup_001.glb",
+      "alt": "Ketchup",
+      "poster": "assets/furniture/ketchup_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/kitchen_chair_001.glb",
+      "alt": "Kitchen chair",
+      "poster": "assets/furniture/kitchen_chair_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/kitchen_sink_001.glb",
+      "alt": "Kitchen sink",
+      "poster": "assets/furniture/kitchen_sink_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/lamp_001.glb",
+      "alt": "Lamp",
+      "poster": "assets/furniture/lamp_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/lamp_002.glb",
+      "alt": "Lamp",
+      "poster": "assets/furniture/lamp_002.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/lounge_chair_001.glb",
+      "alt": "Lounge chair",
+      "poster": "assets/furniture/lounge_chair_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/microwave_oven_001.glb",
+      "alt": "Microwave oven",
+      "poster": "assets/furniture/microwave_oven_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/musical_instrument_001.glb",
+      "alt": "Musical instrument",
+      "poster": "assets/furniture/musical_instrument_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/office_table_001.glb",
+      "alt": "Office table",
+      "poster": "assets/furniture/office_table_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    },
+    {
+      "src": "assets/furniture/scratching_post_001.glb",
+      "alt": "Scratching post",
+      "poster": "assets/furniture/scratching_post_001.webp",
+      "co": "19.08deg 70.85deg 4.941m",
+      "fov": "32.92deg"
+    }
+  ],
+  "Videos": [
+    {
+      "src": "assets/videos/eagle-360.mp4",
+      "alt": "Eagle",
+      "poster": "assets/videos/vr.jpg"
+    }
+  ],
+  "Photos": [
+    {
+      "src": "assets/photos/abandoned_parking_4k.jpg",
+      "alt": "Abandoned parking",
+      "poster": "assets/photos/abandoned_parking.webp"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+.btn {
+  text-transform: none;
+}
+
+#vrlab-div {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#header-div {
+  position: fixed;
+  z-index: 11;
+}
+
+@keyframes animate-booking-div {
+  from {
+    top: -300px;
+  }
+  to{
+    top: var(--top);
+    opacity: 1;
+  }
+}
+
+#booking-div {
+  position: fixed;
+  left: 1rem;
+  right: 1.1rem;
+  height: 80vh;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+  --top: 6rem;
+  animation: animate-booking-div 1s ease forwards;
+}
+
+#welcome-div {
+  position: fixed;
+  left: 8rem;
+  right: 8rem;
+  height: 70vh;
+  text-align: left;
+  opacity: 0;
+  --top: 8rem;
+  animation: animate-booking-div 1s ease forwards;
+}
+
+model-viewer, VideoJS, PannellumReact {
+  position: static;
+  margin: auto;
+  width: 80%;
+  height: 60vh;
+}
+
+#viewer-div {
+  /*position: fixed;
+  top: 90px;*/
+  padding: 1rem;
+  /*left: 15px;
+  right: 30px;
+  height: 80vh;*/
+}
+
+@keyframes animate-logo {
+  from {
+    left: 100rem;
+  }
+  to{
+    left: 1rem;
+    opacity: 1;
+  }
+}
+
+.logo {
+  position: fixed;
+  height: 60px;
+  top: 1rem;
+  left: 100rem;
+  opacity: 0;
+  animation: animate-logo 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes animate-topui {
+  from {
+    left: -1rem;
+  }
+  to{
+    left: 4rem;
+    opacity: 1;
+  }
+}
+
+.topui {
+  position: fixed;
+  top: 3.75rem;
+  left: 4rem;
+  width: 100%;
+  opacity: 0;
+  animation: animate-topui 1s ease forwards;
+  animation-delay: 2s;
+}
+
+@keyframes animate-frame {
+  from {
+    top: -4rem;
+  }
+  to{
+    top: 0rem;
+  }
+}
+
+.frame2 {
+  position: fixed;
+  top: 6rem;
+  width: 100%;
+  z-index: 2;
+}
+
+.frame {
+  position: fixed;
+  top: -4rem;
+  left: 1rem;
+  right: 1rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: start;
+  color: var(--color-title);
+  padding: 1rem 2rem;
+  z-index: 1;
+  background: rgba(255,255,255,0.7);
+  border-radius: 0 0 10px 10px;
+  //box-shadow: 1px 4px 7px rgba(0,0,0,0.5);
+  animation: animate-frame 1s ease forwards;
+}
+
+.frame a:not(.frame__title-back) {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.frame a:not(.frame__title-back)::before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  position: absolute;
+  top: 90%;
+  transition: transform 0.3s;
+  transform-origin: 0% 50%;
+}
+
+.frame a:not(.frame__title-back):hover::before {
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+}
+
+.frame__title .frame__title-main select{
+  /*font-family:Tahoma,Verdana,Segoe,sans-serif;*/
+  font-size:16px;
+  font-style:normal;
+  text-transform:none;
+  text-decoration:none;
+  text-align:left;
+  background-color:#666666;
+  color:#ffffff;
+  font-weight:600;
+ }
+
+ main #root-div #front-div #header-div .frame__title .frame__title-main select{
+  line-height:25.5px !important;
+ }
+
+ #header-div{
+  transform:translatex(0px) translatey(0px);
+  padding-top:0px;
+  padding-bottom:0px;
+ }
+ 
+.frame__title-back {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.frame__title-back span {
+  display: none;
+}
+
+.frame__title-back svg {
+  fill: currentColor;
+}
+
+.frame__prev {
+  grid-area: prev;
+}
+
+@media screen and (min-width: 53em) {
+  .frame {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "title prev sponsor";
+    justify-content: start;
+    grid-gap: 5vw;
+  }
+}
+
+.content {
+  z-index: 10;
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 4px 7px rgba(0,0,0,1);
+}
+
+#chooser {
+  width: 100px;
+}
+
+.annotation {
+  transform: translate3d(calc(-50%), calc(-50%), 0);
+  /*text-align: left;*/
+  background: #181c20;
+  color: #8c92a4;
+  padding: 5px 10px;
+  border-radius: 5px;
+  user-select: none;
+  font-family: var(--leva-fonts-mono);
+  white-space: nowrap;
+}
+
+.annotation1 {
+  transform: translate3d(calc(-50%), calc(50%), 0);
+  /*text-align: left;*/
+  background: #181c20;
+  color: #8c92a4;
+  width: 150px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  user-select: none;
+  font-family: var(--leva-fonts-mono);
+  font-size: 8px;
+}
+
+@keyframes animate-grid-item {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#grid-item {
+  opacity: 0;
+  animation: animate-grid-item 1s ease forwards;
+  animation-delay: 0.2s;
+}

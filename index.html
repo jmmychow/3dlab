@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="lab">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab</title>
+    <meta name="description" content="Laboratory" />
+    <meta name="author" content="Jimmy Chow" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link href="../node_modules/video.js/dist/video-js.css" rel="stylesheet">
+    <link href="dist/videojs-vr.css" rel="stylesheet">
+     <script>
+      document.documentElement.className = "js";
+      var supportsCssVars = function () {
+        var e,
+          t = document.createElement("style");
+        return (
+          (t.innerHTML = "root: { --tmp-var: bold; }"),
+          document.head.appendChild(t),
+          (e = !!(
+            window.CSS &&
+            window.CSS.supports &&
+            window.CSS.supports("font-weight", "var(--tmp-var)")
+          )),
+          t.parentNode.removeChild(t),
+          e
+        );
+      };
+      supportsCssVars() ||
+        alert(
+          "Please view this website in a modern browser that supports CSS Variables."
+        );
+    </script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js"></script>
+</head>
+  <body >
+		<video id="earthVideo" loop autoplay muted style="display:none" crossOrigin="anonymous">
+			<source src="earth.mp4" type="video/mp4" >
+		</video>
+    <main>
+      <div id="root-div">
+      </div>
+    </main>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
