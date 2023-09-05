@@ -46,3 +46,12 @@ Each model appears in the asset library requires an image for selection in the c
 Calendar implementation
 
 As there’s no existing calendar component suitable for our purpose, the calendar is implemented as a custom component.
+
+
+Project installation and running
+
+npm install --force
+
+npm run dev
+
+http://localhost:5173
