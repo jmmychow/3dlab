@@ -55,3 +55,7 @@ npm install --force
 npm run dev
 
 http://localhost:5173
+
+Online demo
+
+https://jmmychow.github.io/3dlab/
