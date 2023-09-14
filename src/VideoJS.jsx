@@ -1,5 +1,8 @@
 import React from 'react';
 import videojs from 'video.js';
+import 'videojs-vr';
+import 'video.js/dist/video-js.css';
+import 'videojs-vr/dist/videojs-vr.css';
 
 export const VideoJS = (props) => {
   const videoRef = React.useRef(null);
