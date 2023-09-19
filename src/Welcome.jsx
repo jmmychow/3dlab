@@ -1,4 +1,5 @@
-export default function Welcome() {
+export default function Welcome({setDismiss}) {
+    setDismiss(true);
     return (
         <div id="welcome-div" className="font-sans text-base font-normal overflow-auto h-5/6 tracking-normal leading-normal" onClick={(e)=>e.stopPropagation()}>
             <div className="text-3xl font-bold tracking-wider"><a className="hover:text-orange-500 text-orange-500">VIRTUAL REALITY</a> LABORATORY</div>
