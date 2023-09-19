@@ -234,16 +234,16 @@ function LeaveMessage({setDismiss, setFacilities}) {
             </div>
             <p>&nbsp;</p>
             <div className="flex justify-center">
-                <div className="btn m-1 bg-opacity-30" onClick={()=>handleSubmit()}>Submit</div>
-                <div className="btn m-1 bg-opacity-30" onClick={()=>setFacilities([])}>Cancel</div>
+                <div className="btn m-1 bg-opacity-30" onClick={()=>{setDismiss(false);handleSubmit()}}>Submit</div>
+                <div className="btn m-1 bg-opacity-30" onClick={()=>{setDismiss(false);setFacilities([])}}>Cancel</div>
             </div>
 
             <dialog id="sendMessageSucceed" className="modal">
-                <form method="dialog" className="modal-box" onClick={()=>setFacilities([])}>
+                <form method="dialog" className="modal-box" onClick={()=>{setDismiss(false);setFacilities([])}}>
                     <h3 className="font-bold text-lg">Thank you</h3>
                 </form>
                 <form method="dialog" className="modal-backdrop">
-                    <button onClick={()=>setFacilities([])}>close</button>
+                    <button onClick={()=>{setDismiss(false);setFacilities([])}}>close</button>
                 </form>
             </dialog>
 
@@ -252,7 +252,7 @@ function LeaveMessage({setDismiss, setFacilities}) {
                     <h3 className="font-bold text-lg">Input invalid</h3>
                     <div className="modal-action">
                         <button className="btn">Retry</button>
-                        <button className="btn" onClick={()=>setFacilities([])}>Close</button>
+                        <button className="btn" onClick={()=>{setDismiss(false);setFacilities([])}}>Close</button>
                     </div>
                 </form>
             </dialog>
