@@ -15,16 +15,14 @@ function HeaderDiv({dismiss}) {
     return (
         <div id="header-div" className="frame">
             <div className="logo flex flex-nowrap text-3xl font-bold text-blue-700 tracking-tighter">The &nbsp;Earth&nbsp; University</div>
-            <div className="topui">
-                <div className="ml-3 mt-1 flex flex-nowrap text-xs btn-inactive bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY<div className="text-white">&nbsp;&nbsp;LABORATORY</div>&nbsp;&nbsp;</div>
-                <DismissDiv dismiss={dismiss} />
-                {/*<div className="dropdown dropdown-hover">
-                    <label tabIndex={0} className="btn btn-ghost btn-xs bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY <div className="text-white">LABORATORY</div>&nbsp;&nbsp;</label>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu rounded-box bg-opacity-30">
-                        {options.map((a,i) => (i>0 ? <li className="btn btn-ghost btn-xs bg-neutral bg-opacity-0 m-1 tracking-wider whitespace-nowrap" onClick={(e)=>{setContent(i);e.stopPropagation();}}>{a}</li> : <></>))}
-                    </ul>
-                </div>*/}
-            </div>
+            <div className="topui ml-3 mt-1 flex flex-nowrap text-xs btn-inactive bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY<div className="text-white">&nbsp;&nbsp;LABORATORY</div>&nbsp;&nbsp;</div>
+            <DismissDiv dismiss={dismiss} />
+            {/*<div className="dropdown dropdown-hover">
+                <label tabIndex={0} className="btn btn-ghost btn-xs bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY <div className="text-white">LABORATORY</div>&nbsp;&nbsp;</label>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu rounded-box bg-opacity-30">
+                    {options.map((a,i) => (i>0 ? <li className="btn btn-ghost btn-xs bg-neutral bg-opacity-0 m-1 tracking-wider whitespace-nowrap" onClick={(e)=>{setContent(i);e.stopPropagation();}}>{a}</li> : <></>))}
+                </ul>
+            </div>*/}
         </div>
     );
 }
