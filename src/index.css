@@ -12,6 +12,8 @@
 
 #header-div {
   position: fixed;
+  display: flex;
+  justify-content: right;
   z-index: 11;
 }
 

@@ -9,7 +9,7 @@ import assets from './assets.json';
 import bk from './bookings.json';
 import session from './session.json';
 
-function HeaderDiv() {
+function HeaderDiv({dismiss}) {
     //const options = [ 'VIRTUAL REALITY LABORATORY', 'FACILITY BOOKING SYSTEM', 'ASSET LIBRARY' ];
 
     return (
@@ -17,6 +17,7 @@ function HeaderDiv() {
             <div className="logo flex flex-nowrap text-3xl font-bold text-blue-700 tracking-tighter">The &nbsp;Earth&nbsp; University</div>
             <div className="topui">
                 <div className="ml-3 mt-1 flex flex-nowrap text-xs btn-inactive bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY<div className="text-white">&nbsp;&nbsp;LABORATORY</div>&nbsp;&nbsp;</div>
+                <DismissDiv dismiss={dismiss} />
                 {/*<div className="dropdown dropdown-hover">
                     <label tabIndex={0} className="btn btn-ghost btn-xs bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY <div className="text-white">LABORATORY</div>&nbsp;&nbsp;</label>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu rounded-box bg-opacity-30">
@@ -26,6 +27,12 @@ function HeaderDiv() {
             </div>
         </div>
     );
+}
+
+function DismissDiv({dismiss}) {
+    return (
+        dismiss ? <div className="btn mt-[3rem] btn-sm">Dismiss</div> : <></>
+    )
 }
 
 function FacilityList({facilities, setFacilities}) {
@@ -74,10 +81,12 @@ function BookingMessage({message, facilities, bookings}) {
     }
 }
 
-function BookingSystem({facilities, setFacilities, bookings, setBookings}) {
+function BookingSystem({setDismiss, facilities, setFacilities, bookings, setBookings}) {
     const [message, setMessage] = useState();
     const [academic, setAcademic] = useState(null);
     const [personsLess10, setPersonsLess10] = useState(null);
+
+    setDismiss(true);
 
     // check if user has already logged in
     if (session) {
@@ -182,10 +191,11 @@ function AssetTypeSelect({assetType, setAssetType, setAsset}) {
     );
 }
 
-function AssetLibrary() {
+function AssetLibrary({setDismiss}) {
     const [assetType, setAssetType] = useState("Models");
     const [asset, setAsset] = useState();
 
+    setDismiss(true);
     return (
         <>
             <AssetTypeSelect assetType={assetType} setAssetType={setAssetType} setAsset={setAsset}/>
@@ -198,7 +208,7 @@ function AssetLibrary() {
     );
 }
 
-function LeaveMessage({setFacilities}) {
+function LeaveMessage({setDismiss, setFacilities}) {
     const [email, setEmail] = useState();
     const [message, setMessage] = useState();
 
@@ -209,6 +219,8 @@ function LeaveMessage({setFacilities}) {
             window.sendMessageFail.showModal();
         };
     };
+
+    setDismiss(true);
 
     return (
         <div className="flex flex-col justify-center text-center w-full" onClick={(e)=>e.stopPropagation()}>
@@ -250,7 +262,8 @@ function LeaveMessage({setFacilities}) {
     );
 }
 
-function Documentation({facilities}) {
+function Documentation({setDismiss, facilities}) {
+    setDismiss(true);
     return (
         <div id="welcome-div" className="font-sans text-base font-normal overflow-auto h-5/6 tracking-normal leading-normal" onClick={(e)=>e.stopPropagation()}>
                 {
@@ -295,25 +308,26 @@ function Documentation({facilities}) {
 
 export default function FrontDiv({ content, setContent, facilities, setFacilities }) {
     const location = useLocation();
+    const [dismiss, setDismiss] = useState(content!=0);
     const [bookings, setBookings] = useState(bk);
 
     return (
         <div id="front-div" onClick={()=>{setContent(0);setFacilities([]);}}>
-            <HeaderDiv setContent={setContent} setFacilities={setFacilities} />
+            <HeaderDiv setDismiss={setDismiss} />
             {(content==0 ?
                 (facilities.length==1 && facilities[0]=="screen" ?
                     <div id="booking-div" className="flex flex-col items-center content"  onClick={(e)=>{setFacilities([]);e.stopPropagation()}}>
-                        <Welcome />
+                        <Welcome setDismiss={setDismiss} />
                     </div>
                     :
                     (facilities[0]=="administrator" ? 
                         <div id="booking-div" className="flex flex-col items-center content"  onClick={(e)=>e.stopPropagation()}>
-                            <LeaveMessage setFacilities={setFacilities}/>
+                            <LeaveMessage setDismiss={setDismiss} setFacilities={setFacilities}/>
                         </div>
                     :
                         (facilities.length==1 && facilities[0].includes("drawer") ? 
                             <div id="booking-div" className="flex flex-col items-center content"  onClick={(e)=>e.stopPropagation()}>
-                                <Documentation facilities={facilities} setFacilities={setFacilities} />
+                                <Documentation setDismiss={setDismiss} facilities={facilities} setFacilities={setFacilities} />
                             </div>
                         :
                             <div></div>
@@ -323,9 +337,9 @@ export default function FrontDiv({ content, setContent, facilities, setFacilitie
             :
                 <div id="booking-div" className="flex flex-col items-center content"  onClick={(e)=>{e.stopPropagation()}}>
                 {(content == 1 ? 
-                    <BookingSystem facilities={facilities} setFacilities={setFacilities} bookings={bookings} setBookings={setBookings}/> 
+                    <BookingSystem setDismiss={setDismiss} facilities={facilities} setFacilities={setFacilities} bookings={bookings} setBookings={setBookings}/> 
                     :
-                    <AssetLibrary /> 
+                    <AssetLibrary setDismiss={setDismiss} /> 
                 )}
                 </div>
             )}
