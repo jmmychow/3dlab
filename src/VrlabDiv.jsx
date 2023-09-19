@@ -254,6 +254,7 @@ export default function VrlabDiv({ setContent, setFacilities }) {
           </SheetProvider>
         </ScrollControls>
       </Canvas>
+      <Loader />
     </div>
     <div className="pt-2 pr-6 flex flex-nowrap justify-end text-xs frame2">Scroll direction&nbsp;<input type="checkbox" className="toggle toggle-xs" onClick={() => setForward(!forward)} /></div>
     </>
