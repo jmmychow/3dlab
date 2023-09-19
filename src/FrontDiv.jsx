@@ -311,7 +311,7 @@ export default function FrontDiv({ content, setContent, facilities, setFacilitie
 
     return (
         <div id="front-div" onClick={()=>{setContent(0);setFacilities([]);}}>
-            <HeaderDiv setDismiss={setDismiss} />
+            <HeaderDiv dismiss={dismiss} />
             {(content==0 ?
                 (facilities.length==1 && facilities[0]=="screen" ?
                     <div id="booking-div" className="flex flex-col items-center content"  onClick={(e)=>{setFacilities([]);e.stopPropagation()}}>
