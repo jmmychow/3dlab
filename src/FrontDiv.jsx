@@ -310,7 +310,7 @@ export default function FrontDiv({ content, setContent, facilities, setFacilitie
     const [bookings, setBookings] = useState(bk);
 
     return (
-        <div id="front-div" onClick={()=>{setContent(0);setFacilities([]);}}>
+        <div id="front-div" onClick={()=>{setDismiss(false);setContent(0);setFacilities([]);}}>
             <HeaderDiv dismiss={dismiss} />
             {(content==0 ?
                 (facilities.length==1 && facilities[0]=="screen" ?
