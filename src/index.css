@@ -136,7 +136,7 @@ model-viewer, VideoJS, PannellumReact {
   z-index: 1;
   background: rgba(255,255,255,0.7);
   border-radius: 0 0 10px 10px;
-  //box-shadow: 1px 4px 7px rgba(0,0,0,0.5);
+  box-shadow: 1px 4px 7px rgba(0,0,0,0.5);
   animation: animate-frame 1s ease forwards;
 }
 

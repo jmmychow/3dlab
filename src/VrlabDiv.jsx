@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import React, { useRef, useEffect, useState, Suspense } from 'react';
 //import parse from 'html-react-parser';
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import { Html, ScrollControls, useScroll, useGLTF, useAnimations, useTexture } from "@react-three/drei";
+import { Html, ScrollControls, useScroll, useGLTF, useAnimations, useProgress, Loader } from "@react-three/drei";
 import { Selection, Select, EffectComposer, Bloom, Outline, Vignette, BrightnessContrast, HueSaturation } from '@react-three/postprocessing';
 import { BlurPass, Resizer, KernelSize, BlendFunction } from 'postprocessing';
 import { getProject, val } from "@theatre/core";
@@ -155,13 +155,13 @@ function Scene({ forward, backward, setBackward, setContent, setFacilities }) {
 
   const [selected, setSelected] = useState();
 
-  const bloader = new THREE.CubeTextureLoader();
+  /*const bloader = new THREE.CubeTextureLoader();
   const textureCube = bloader.load( [
     'space_right1.png', 'space_left2.png',
     'space_top3.png', 'space_bottom4.png',
     'space_front5.png', 'space_back6.png'
   ] );
-  scene.background = textureCube;
+  scene.background = textureCube;*/
 
   //gl.toneMapping = THREE.ACESFilmicToneMapping;
   gl.toneMapping = THREE.ReinhardToneMapping;
@@ -248,7 +248,9 @@ export default function VrlabDiv({ setContent, setFacilities }) {
       <Canvas gl={{ preserveDrawingBuffer: true }}>
         <ScrollControls pages={5}>
           <SheetProvider sheet={sheet}>
-            <Scene forward={forward} backward={backward} setBackward={setBackward} setContent={setContent} setFacilities={setFacilities}/>
+            <Suspense fallback={null}>
+              <Scene forward={forward} backward={backward} setBackward={setBackward} setContent={setContent} setFacilities={setFacilities}/>
+            </Suspense>
           </SheetProvider>
         </ScrollControls>
       </Canvas>
