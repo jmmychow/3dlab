@@ -2,12 +2,13 @@ import * as THREE from 'three';
 import React, { useRef, useEffect, useState, Suspense } from 'react';
 //import parse from 'html-react-parser';
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import { Html, ScrollControls, useScroll, useGLTF, useAnimations, useProgress, Loader } from "@react-three/drei";
+import { Html, ScrollControls, useScroll, useGLTF, useAnimations } from "@react-three/drei";
 import { Selection, Select, EffectComposer, Bloom, Outline, Vignette, BrightnessContrast, HueSaturation } from '@react-three/postprocessing';
 import { BlurPass, Resizer, KernelSize, BlendFunction } from 'postprocessing';
 import { getProject, val } from "@theatre/core";
 import theatreState from "./theatreState.json";
 import { SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
+import { LoadingScreen } from "./LoadingScreen";
 
 const selectables = [ 
   "C_A_V_E", "Workstation_1", "Workstation_2", "Workstation_3", "Workstation_4", "Workstation_5", "Workstation_6",
@@ -235,6 +236,7 @@ function clickObject(e, setContent, setFacilities) {
 }
 
 export default function VrlabDiv({ setContent, setFacilities }) {
+  const [ start, setStart ] = useState(false);
   const [ forward, setForward ] = useState(true);
   const [ backward, setBackward ] = useState(false);
 
@@ -254,7 +256,7 @@ export default function VrlabDiv({ setContent, setFacilities }) {
           </SheetProvider>
         </ScrollControls>
       </Canvas>
-      <Loader />
+      <LoadingScreen started={start} onStarted={() => setStart(true)}/>
     </div>
     <div className="pt-2 pr-6 flex flex-nowrap justify-end text-xs frame2">Scroll direction&nbsp;<input type="checkbox" className="toggle toggle-xs" onClick={() => setForward(!forward)} /></div>
     </>
