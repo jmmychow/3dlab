@@ -110,7 +110,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  /*display: none;*/
 	width: 11px;
 }
 ::-webkit-scrollbar-track {
