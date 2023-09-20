@@ -27,7 +27,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("space_front5.png");
+  background-image: url("/space_front5.png");
   opacity: 1;
   display: flex;
   justify-content: center;
