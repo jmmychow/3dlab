@@ -22,30 +22,28 @@ body {
 }
 
 .loadingScreen__board {
-  padding: 300px 420px;
-  background-color: rgb(0 0 0 / 22%);
-  border-radius: 10px;
-  text-align: center;
-  border: 1px rgb(0 0 0 / 22%);
-  transition: opacity 0.4s;
-}
-
-.loadingScreen__title {
-  font-size: 4rem;
-  color: rgba(0, 0, 0, 0.5);
-  margin: 0;
-  margin-bottom: 8px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("space_front5.png");
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px rgb(0 0 0 / 50%);
+  transition: opacity 0.8s;
 }
 
 .loadingScreen__button {
   padding: 8px 32px;
   background-color: rgba(0, 0, 0, 0.22);
-  color: white;
+  color: gray;
   border: none;
-  /*font-weight: bold;*/
-  font-size: 2rem;
-  border-radius: 10px;
+  font-size: 1.5rem;
   transition: background-color 0.4s;
+  z-index: 1;
 }
 
 .loadingScreen__button:hover {
@@ -58,23 +56,6 @@ body {
   cursor: not-allowed;
 }
 
-.loadingScreen__progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 12px;
-}
-
-.loadingScreen__progress__value {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgb(0 0 0 / 50%);
-  transition: width 0.4s;
-}
-
 .loadingScreen--started {
   opacity: 0;
   pointer-events: none;
@@ -82,6 +63,67 @@ body {
 
 .loadingScreen--started .loadingScreen__board {
   opacity: 0;
+}
+
+#space, .stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: -4s;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: -3s;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: -2s;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: -1s;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 0s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.25);
+    animation-timing-function: ease-in;
+  } 
+  85% {
+    opacity: 1;
+    transform: scale(1.4);
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
 }
 
 #vrlab-div {
@@ -97,6 +139,36 @@ body {
   display: flex;
   justify-content: right;
   z-index: 11;
+}
+
+/*
+#left-div {
+  position: fixed;
+  top: 7rem;
+  width: auto;
+  height: 70vh;
+  margin-left: 0;
+  padding: 20px;
+  z-index: 1;
+  overflow-x: hidden;
+  opacity: 0.6;
+  transition: 0.5s;
+  background: rgba(0,0,0,0.4);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 1px 4px 7px rgba(0,0,0,0.5);
+}
+*/
+
+#footer-div {
+  position: fixed;
+  left: 1rem;
+  right: 1.1rem;
+  bottom: 6rem;
+  height: 24vh;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
 }
 
 @keyframes animate-booking-div {
@@ -131,6 +203,13 @@ body {
   opacity: 0;
   --top: 8rem;
   animation: animate-booking-div 1s ease forwards;
+}
+
+#sketchfab-viewer {
+  position: static;
+  margin: auto;
+  width: 80%;
+  height: 60vh;
 }
 
 model-viewer, VideoJS, PannellumReact {
@@ -198,6 +277,14 @@ model-viewer, VideoJS, PannellumReact {
   }
 }
 
+.frame3 {
+  position: fixed;
+  top: 3.5rem;
+  left: 20rem;
+  width: auto;
+  z-index: 11;
+}
+
 .frame2 {
   position: fixed;
   top: 6rem;
@@ -258,7 +345,7 @@ model-viewer, VideoJS, PannellumReact {
   font-weight:600;
  }
 
- main #root-div #front-div #header-div .frame__title .frame__title-main select{
+ main #root-div #front-div #header-div #left-div #footer-div .frame__title .frame__title-main select{
   line-height:25.5px !important;
  }
 
