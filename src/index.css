@@ -189,6 +189,7 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  overflow-x: auto;
   opacity: 1;
   --top: 6rem;
   animation: animate-booking-div 1s ease forwards;
@@ -196,8 +197,7 @@ body {
 
 #welcome-div {
   position: fixed;
-  left: 8rem;
-  right: 8rem;
+  width: 80vw;
   height: 70vh;
   text-align: left;
   opacity: 0;
@@ -428,8 +428,10 @@ model-viewer, VideoJS, PannellumReact {
     opacity: 1;
   }
 }
+/*
 #grid-item {
   opacity: 0;
   animation: animate-grid-item 1s ease forwards;
   animation-delay: 0.2s;
 }
+*/
