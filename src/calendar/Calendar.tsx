@@ -1,3 +1,5 @@
+import { useMediaQuery } from 'react-responsive';
+
 import {
   addDays,
   subDays,
@@ -146,12 +148,23 @@ const Calendar: React.FC<Props> = ({ start, facilities, academic, personsLess10,
     }
   }
 
+  const isDesktop = useMediaQuery({ minWidth: 992 });
+
   if (monthdays.length == 2) {
     return (
-      <div className="grid grid-cols-2 w-[1000px] rounded-xl">
-        <CalendarMonth prefixDays={prefixDays1} monthDays={monthdays[0]} startMonthDate={start} endMonthDate={endOfMonth(start)} suffixDays={suffixDays1} bookings={bookings} facilities={facilities} handleClickDateType={handleClickDate1} handleMouseType={showEmail} />
-        <CalendarMonth prefixDays={prefixDays2} monthDays={monthdays[1]} startMonthDate={startOfMonth(addDays(endOfMonth(start),1))} endMonthDate={subDays(endDate,1)} suffixDays={suffixDays2} bookings={bookings} facilities={facilities} handleClickDateType={handleClickDate2} handleMouseType={showEmail} />
-      </div>
+      isDesktop ?
+        <div className="grid grid-cols-2 w-[1000px] rounded-xl">
+          <CalendarMonth prefixDays={prefixDays1} monthDays={monthdays[0]} startMonthDate={start} endMonthDate={endOfMonth(start)} suffixDays={suffixDays1} bookings={bookings} facilities={facilities} handleClickDateType={handleClickDate1} handleMouseType={showEmail} />
+          <CalendarMonth prefixDays={prefixDays2} monthDays={monthdays[1]} startMonthDate={startOfMonth(addDays(endOfMonth(start),1))} endMonthDate={subDays(endDate,1)} suffixDays={suffixDays2} bookings={bookings} facilities={facilities} handleClickDateType={handleClickDate2} handleMouseType={showEmail} />
+        </div> :
+        <>
+          <div className="grid grid-cols-1 w-[500px] rounded-xl">
+            <CalendarMonth prefixDays={prefixDays1} monthDays={monthdays[0]} startMonthDate={start} endMonthDate={endOfMonth(start)} suffixDays={suffixDays1} bookings={bookings} facilities={facilities} handleClickDateType={handleClickDate1} handleMouseType={showEmail} />
+          </div>
+          <div className="grid grid-cols-1 w-[500px] rounded-xl">
+            <CalendarMonth prefixDays={prefixDays2} monthDays={monthdays[1]} startMonthDate={startOfMonth(addDays(endOfMonth(start),1))} endMonthDate={subDays(endDate,1)} suffixDays={suffixDays2} bookings={bookings} facilities={facilities} handleClickDateType={handleClickDate2} handleMouseType={showEmail} />
+          </div>
+        </>
     );
   } else {
     return (

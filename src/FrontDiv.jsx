@@ -15,8 +15,8 @@ function HeaderDiv({dismiss}) {
 
     return (
         <div id="header-div" className="frame">
-            <div className="logo flex flex-nowrap text-3xl font-bold text-blue-700 tracking-tighter">The &nbsp;Earth&nbsp; University</div>
-            <div className="topui ml-3 mt-1 flex flex-nowrap text-xs btn-inactive bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY<div className="text-white">&nbsp;&nbsp;LABORATORY</div>&nbsp;&nbsp;</div>
+            {/*<div className="logo flex flex-nowrap text-3xl font-bold text-blue-700 tracking-tighter">The &nbsp;Earth&nbsp; University</div>*/}
+            <div className="topui -mt-8 font-bold flex flex-nowrap text-3xl btn-inactive bg-neutral bg-opacity-0 text-orange-500">&nbsp;&nbsp;VIRTUAL REALITY<div className="text-white">&nbsp;&nbsp;LABORATORY</div>&nbsp;&nbsp;</div>
             <DismissDiv dismiss={dismiss} />
             {/*<div className="dropdown dropdown-hover">
                 <label tabIndex={0} className="btn btn-ghost btn-xs bg-neutral bg-opacity-0 text-orange-500 tracking-wider">&nbsp;&nbsp;VIRTUAL REALITY <div className="text-white">LABORATORY</div>&nbsp;&nbsp;</label>
@@ -34,19 +34,6 @@ function DismissDiv({dismiss}) {
     )
 }
 
-function Desktop ({ children }) {
-    const isDesktop = useMediaQuery({ minWidth: 992 });
-    return isDesktop ? children : null;
-}
-function Tablet ({ children }) {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
-    return isTablet ? children : null;
-}
-function Mobile ({ children }) {
-    const isMobile = useMediaQuery({ maxWidth: 767 });
-    return isMobile ? children : null;
-}
-
 function FacilityList({facilities, setFacilities}) {
     const selectables = [ "C A V E", "Workstation 1", "Workstation 2", "Workstation 3", "Workstation 4", "Workstation 5", "Workstation 6" ];
     const selectableList = [];
@@ -61,30 +48,36 @@ function FacilityList({facilities, setFacilities}) {
         };
     });
 
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+
     return (
-        <>
-            <Desktop>
-                <ul className="mt-8 menu menu-horizontal bg-opacity-30">
-                    { selectableList }
-                </ul>
-            </Desktop>
-            <Tablet>
-                <ul className="mt-8 menu menu-horizontal bg-opacity-30">
-                    { selectableList.slice(0,4) }
-                </ul><br></br>
-                <ul className="menu menu-horizontal bg-opacity-30">
-                    { selectableList.slice(4) }
-                </ul>
-            </Tablet>
-            <Mobile>
-                <ul className="mt-8 menu menu-horizontal bg-opacity-30">
-                    { selectableList.slice(0,4) }
-                </ul><br></br>
-                <ul className="menu menu-horizontal bg-opacity-30">
-                    { selectableList.slice(4) }
-                </ul>
-            </Mobile>
-        </>
+        isDesktop ? (
+            <ul className="mt-8 menu menu-horizontal bg-opacity-30">
+                { selectableList }
+            </ul>
+            ) : isTablet ? (
+                    <>
+                        <ul className="mt-8 menu menu-horizontal bg-opacity-30">
+                            { selectableList.slice(0,4) }
+                        </ul><br></br>
+                        <ul className="menu menu-horizontal bg-opacity-30">
+                            { selectableList.slice(4) }
+                        </ul>
+                    </>
+                ) : (
+                    <>
+                        <ul className="mt-8 menu menu-horizontal bg-opacity-30">
+                            { selectableList.slice(0,1) }
+                        </ul><br></br>
+                        <ul className="menu menu-horizontal bg-opacity-30">
+                            { selectableList.slice(1,4) }
+                        </ul><br></br>
+                        <ul className="menu menu-horizontal bg-opacity-30">
+                            { selectableList.slice(4) }
+                        </ul>
+                    </>
+                )
     );
 }
 
@@ -94,20 +87,8 @@ function AcademicNPersons({academic, setAcademic, personsLess10, setPersonsLess1
     const buttonOffStyle = "btn m-0.5 btn-ghost bg-opacity-30";
 
     return (
-        <>
-            <Desktop><div className="flex flex-row justify-center">
-                <div className="menu menu-horizontal bg-opacity-30">
-                    <li className={titleStyle}>Academic</li>
-                    <li className={(academic == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(true);e.stopPropagation();}}>Yes</li>
-                    <li className={(academic == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(false);e.stopPropagation();}}>No</li>
-                </div>
-                <div className="ml-20 menu menu-horizontal bg-opacity-30">
-                    <li className={titleStyle}>Less than 10 persons</li>
-                    <li className={(personsLess10 == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(true);e.stopPropagation();}}>Yes</li>
-                    <li className={(personsLess10 == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(false);e.stopPropagation();}}>No</li>
-                </div>
-            </div></Desktop>
-            <Tablet><div className="flex flex-col items-center">
+        useMediaQuery({ minWidth: 992 }) ? (
+            <div className="flex flex-row justify-center">
                 <div className="menu menu-horizontal bg-opacity-30">
                     <li className={titleStyle}>Academic</li>
                     <li className={(academic == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(true);e.stopPropagation();}}>Yes</li>
@@ -118,37 +99,24 @@ function AcademicNPersons({academic, setAcademic, personsLess10, setPersonsLess1
                     <li className={(personsLess10 == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(true);e.stopPropagation();}}>Yes</li>
                     <li className={(personsLess10 == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(false);e.stopPropagation();}}>No</li>
                 </div>
-            </div></Tablet>
-            <Mobile><div className="flex flex-col items-center">
-                <div className="menu menu-horizontal bg-opacity-30">
-                    <li className={titleStyle}>Academic</li>
-                    <li className={(academic == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(true);e.stopPropagation();}}>Yes</li>
-                    <li className={(academic == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(false);e.stopPropagation();}}>No</li>
+            </div>
+        ) : (
+            <>
+                <div className="flex flex-col items-center">
+                    <div className="menu menu-horizontal bg-opacity-30">
+                        <li className={titleStyle}>Academic</li>
+                        <li className={(academic == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(true);e.stopPropagation();}}>Yes</li>
+                        <li className={(academic == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setAcademic(false);e.stopPropagation();}}>No</li>
+                    </div>
+                    <div className="menu menu-horizontal bg-opacity-30">
+                        <li className={titleStyle}>Less than 10 persons</li>
+                        <li className={(personsLess10 == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(true);e.stopPropagation();}}>Yes</li>
+                        <li className={(personsLess10 == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(false);e.stopPropagation();}}>No</li>
+                    </div>
                 </div>
-                <div className="menu menu-horizontal bg-opacity-30">
-                    <li className={titleStyle}>Less than 10 persons</li>
-                    <li className={(personsLess10 == true ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(true);e.stopPropagation();}}>Yes</li>
-                    <li className={(personsLess10 == false ? buttonOnStyle : buttonOffStyle)} onClick={(e)=>{setPersonsLess10(false);e.stopPropagation();}}>No</li>
-                </div>
-            </div></Mobile>
-        </>
+            </>
+        )
     );
-    /*
-    return (
-        <div><p></p>
-            Academic
-            <ul className="menu menu-vertical lg:menu-horizontal bg-opacity-30">
-                <li className={(academic == true ? "btn m-0.5 bg-orange-500 bg-opacity-90 hover:bg-orange-500 hover:bg-opacity-100 text-black border-none btn-active" : "btn m-0.5 btn-ghost bg-opacity-30")} onClick={(e)=>{setAcademic(true);e.stopPropagation();}}>Yes</li>
-                <li className={(academic == false ? "btn m-0.5 bg-orange-500 bg-opacity-90 hover:bg-orange-500 hover:bg-opacity-100 text-black border-none btn-active" : "btn m-0.5 btn-ghost bg-opacity-30")} onClick={(e)=>{setAcademic(false);e.stopPropagation();}}>No</li>
-            </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Less than 10 persons
-            <ul className="menu menu-vertical lg:menu-horizontal bg-opacity-30">
-                <li className={(personsLess10 == true ? "btn m-0.5 bg-orange-500 bg-opacity-90 hover:bg-orange-500 hover:bg-opacity-100 text-black border-none btn-active" : "btn m-0.5 btn-ghost bg-opacity-30")} onClick={(e)=>{setPersonsLess10(true);e.stopPropagation();}}>Yes</li>
-                <li className={(personsLess10 == false ? "btn m-0.5 bg-orange-500 bg-opacity-90 hover:bg-orange-500 hover:bg-opacity-100 text-black border-none btn-active" : "btn m-0.5 btn-ghost bg-opacity-30")} onClick={(e)=>{setPersonsLess10(false);e.stopPropagation();}}>No</li>
-            </ul>
-        </div>
-    );
-    */
 }
 
 function BookingMessage({message, facilities, bookings}) {
@@ -243,28 +211,24 @@ function AssetViewer({ asset, assetType, setAsset }) {
 }
 
 function AssetGrid({ assetType, setAsset }) {
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
     const itemStyle = "rounded flex flex-col justify-center items-center text-center hover:bg-gray-100 hover:bg-opacity-20";
 
     return (
         assetType == null ? <div></div> :
-        <>
-            <Desktop>
-                <div className="ml-16 mr-16 h-4/5 grid grid-flow-row auto-rows-max grid-cols-8 overflow-auto gap-8">
-                    {assets[assetType].map((a,i) => <div key={i} id="grid-item" className={itemStyle} onClick={(e) => {setAsset(i);e.stopPropagation()}} ><img className="rounded" src={a.poster}></img>{a.alt}</div>)}
-                </div>
-            </Desktop>
-            <Tablet>
-                <div className="ml-16 mr-16 h-4/5 grid grid-flow-row auto-rows-max grid-cols-6 overflow-auto gap-8">
-                    {assets[assetType].map((a,i) => <div key={i} id="grid-item" className={itemStyle} onClick={(e) => {setAsset(i);e.stopPropagation()}} ><img className="rounded" src={a.poster}></img>{a.alt}</div>)}
-                </div>
-            </Tablet>
-            <Mobile>
-                <div className="ml-16 mr-16 h-4/5 grid grid-flow-row auto-rows-max grid-cols-4 overflow-auto gap-8">
-                    {assets[assetType].map((a,i) => <div key={i} id="grid-item" className={itemStyle} onClick={(e) => {setAsset(i);e.stopPropagation()}} ><img className="rounded" src={a.poster}></img>{a.alt}</div>)}
-                </div>
-            </Mobile>
-        </>
-    );
+            <div className={
+                isDesktop ? 
+                    "ml-16 mr-16 h-4/5 grid grid-flow-row auto-rows-max grid-cols-8 overflow-auto gap-8"
+                    : isTablet ?
+                        "ml-8 mr-8 h-4/5 grid grid-flow-row auto-rows-max grid-cols-6 overflow-auto gap-8"
+                        :
+                        "h-4/5 grid grid-flow-row auto-rows-max grid-cols-4 overflow-auto gap-8"
+                }
+            >
+                {assets[assetType].map((a,i) => <div key={i} id="grid-item" className={itemStyle} onClick={(e) => {setAsset(i);e.stopPropagation()}} ><img className="rounded" src={a.poster}></img>{a.alt}</div>)}
+            </div>
+);
 }
   
 function AssetTypeSelect({assetType, setAssetType, setAsset}) {
